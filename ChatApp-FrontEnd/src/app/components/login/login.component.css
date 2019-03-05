@@ -1,0 +1,32 @@
+#panel{
+    background-color: white;
+}
+
+#panel{
+    padding: 0px;
+}
+
+#loginbtn{
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: skyblue;
+    font-weight: 500;
+}
+
+#title{
+    background-color: skyblue;
+    color: white;
+    padding: 8px;
+    margin-top: 0px;
+    font-weight: 700;
+text-align: center;
+}
+
+form{
+    padding: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin: 0px 20px 0px 20px;
+
+}
