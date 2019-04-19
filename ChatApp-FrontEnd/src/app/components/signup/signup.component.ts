@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormGroup , FormBuilder , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgZone } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,11 +15,12 @@ export class SignupComponent implements OnInit {
   signupForm:FormGroup
   errorMessage : string
   flag : boolean
+  showSpinner = false
 
   constructor( private authService:AuthService , 
                private fb : FormBuilder , 
                private router:Router,
-               //public zone: NgZone
+               private tokenService : TokenService
               ) { }
 
   ngOnInit() {
@@ -35,17 +37,22 @@ export class SignupComponent implements OnInit {
 
   signupUser()
   {
+    this.showSpinner = true;
     console.log(this.signupForm.value)
     this.authService.registerUser(this.signupForm.value).subscribe(
       data =>{
         debugger
-        console.log(data);
+        this.tokenService.SetToken(data.token);
         this.signupForm.reset();
+        setTimeout(() => {
         this.router.navigate(['streams']); 
+          
+        }, 1000);
         //this.zone.run(() => { this.router.navigate(['streams']); });
       },
       err => {
         debugger
+         this.showSpinner = false;
         console.log(err);
         if(err.error.msg)
         {

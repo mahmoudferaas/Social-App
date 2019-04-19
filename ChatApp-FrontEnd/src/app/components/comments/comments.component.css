@@ -1,0 +1,45 @@
+.postDiv{
+    background-color: #64b5f6;
+}
+
+form{
+    background-color: #fff;
+    /* height: 100px; */
+
+}
+
+/* .post{
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+} */
+
+
+.title{
+    font-weight:bold;
+    color: #64b5f6;
+}
+
+.time{
+    font-size: 14px;
+    color: #666565;
+}
+
+.formDiv{
+    margin: 0px 20px 0px 20px;
+}
+
+.addImageButton{
+    margin-bottom: 5px;
+}
+
+.postBtn{
+    float: right;
+    margin-bottom: 5px;
+}
+.file-field input[type='file']{
+    width: 70% !important;
+}
+
+.Imageicon{
+    color: white;
+}

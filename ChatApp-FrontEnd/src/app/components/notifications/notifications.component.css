@@ -1,0 +1,20 @@
+.material-icons{
+    color: #64b5f6 !important;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.time{
+    margin-bottom: 10px;
+    font-style: italic;
+
+}
+
+.text{
+    font-size: 18px;
+    text-align: center;
+}
+
+.disabled{
+    color: #c0c0c0 !important;
+}

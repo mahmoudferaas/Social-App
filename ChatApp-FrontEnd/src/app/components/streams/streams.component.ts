@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-streams',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StreamsComponent implements OnInit {
 
-  constructor() { }
+  token : any;
+  constructor( private tokenService : TokenService,
+    private router : Router ) { }
 
   ngOnInit() {
+    this.token = this.tokenService.GetPayload();
+    console.log(this.token);
   }
+
 
 }

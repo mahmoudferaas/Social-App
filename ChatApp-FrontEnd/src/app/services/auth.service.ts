@@ -16,4 +16,10 @@ export class AuthService {
   registerUser(body) : Observable<any>{
     return this.http.post(`${BASEURL}/register` , body);
   }
+
+  LoginUser(body) : Observable<any>{
+    return this.http.post(`${BASEURL}/login` , body);
+  }
+
+
 }

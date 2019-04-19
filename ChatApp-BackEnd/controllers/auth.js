@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken');
 const dbConfig = require('../config/secret');
 
 module.exports = {
+
+
     async  CreateUser(req , res)
     {
         const schema = Joi.object().keys({
@@ -52,7 +54,7 @@ module.exports = {
             }
             User.create(body).then((user)=>{
                 const token = jwt.sign( { data : user} ,dbConfig.secret ,{
-                    expiresIn:120
+                    expiresIn:"1h"
                 } );
                 res.cookie('auth' , token);
                  res
@@ -64,6 +66,52 @@ module.exports = {
                  .json({message : 'ERROR' });
             });
         });
-    
+    },
+
+
+
+
+
+
+    async  LoginUser(req , res)
+    {
+        if(!req.body.username || !req.body.password)
+        {
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .json({message : " No Empty Feild Allowed"});
+        }
+
+        await User.findOne({username : Helper.firstUpper(req.body.username)})
+                    .then(user =>{
+                        if(!user)
+                        {
+                            return res.status(HttpStatus.NOT_FOUND)
+                             .json({message : "UserName Not Found"});
+                        }
+
+                        return bcrypt.compare(req.body.password , user.password).then(result =>{
+                            if(!result)
+                            {
+                                return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .json({message : "Password Not Correct"});
+                            }
+
+                            const token = jwt.sign({data:user} , dbConfig.secret,{expiresIn:"1h"});
+                            res.cookie('auth' , token);
+                            return res.status(HttpStatus.OK)
+                            .json({message : "Log in Successfully" , user , token});
+                        })
+
+                    }).catch(err =>{
+                        return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                            .json({message : "SERVER_ERROR" });
+                    })
+
     }
+
+
+
+
+
+
 }

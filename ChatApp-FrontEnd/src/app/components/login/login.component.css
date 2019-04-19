@@ -30,3 +30,20 @@ form{
     margin: 0px 20px 0px 20px;
 
 }
+
+
+#errormsg{
+    background: #f6b2b5;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#errormsg span{
+    top: 50%;
+    transform: translate(-50% , -50%);
+    left: 50%;
+    position: relative;
+    float: left;
+    font-size: 15px;
+}

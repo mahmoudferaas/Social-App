@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 
 const dbConfig = require('./config/secret');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 app.use((req , res , next) => {
     res.header('Access-Control-Allow-Origin' , '*');
@@ -27,10 +29,19 @@ app.use(cookieParser());
 mongoose.Promise = global.Promise;
 mongoose.connect( dbConfig.url ,  { useNewUrlParser: true });
 
-const auth = require('./routes/authRoutes');
-app.use('/api/chatApp' , auth);
+require('./socket/streams')(io);
 
-app.listen(3000 ,() => {
+const auth = require('./routes/authRoutes');
+const posts = require('./routes/postRoutes');
+const users = require('./routes/userRoutes');
+const friends = require('./routes/friendsRoutes');
+
+app.use('/api/chatApp' , auth);
+app.use('/api/chatApp' , posts);
+app.use('/api/chatApp' , users);
+app.use('/api/chatApp' , friends);
+
+http.listen(3000 ,() => {
     console.log('running on 3000');
     //console.log('running on 3000');
 })
