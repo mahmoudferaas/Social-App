@@ -16,16 +16,24 @@ import { UsersService } from '../services/users.service';
 import { FollowingComponent } from '../components/following/following.component';
 import { FollowersComponent } from '../components/followers/followers.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
+import { TopStreamsComponent } from '../components/top-streams/top-streams.component';
+import { ChatComponent } from '../components/chat/chat.component';
+import { MessageComponent } from '../components/message/message.component';
+import { ImagesComponent } from '../components/images/images.component';
+import { FileUploadModule} from 'ng2-file-upload';
+import { ViewUserComponent } from '../components/view-user/view-user.component';
+import { ChangePasswordComponent } from '../components/change-password/change-password.component';
 
 @NgModule({
   declarations: [ StreamsComponent , ToolarComponent, SideComponent,
-     PostFormComponent, PostsComponent , CommentsComponent, PeopleComponent, FollowingComponent, FollowersComponent , NotificationsComponent ],
+     PostFormComponent, PostsComponent , CommentsComponent, PeopleComponent, FollowingComponent, FollowersComponent , NotificationsComponent, TopStreamsComponent, ChatComponent, MessageComponent, ImagesComponent, ViewUserComponent, ChangePasswordComponent ],
   exports: [ StreamsComponent , ToolarComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FileUploadModule,
     RouterModule
   ],
   providers :[TokenService , PostService , UsersService] 

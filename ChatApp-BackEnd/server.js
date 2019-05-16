@@ -35,11 +35,13 @@ const auth = require('./routes/authRoutes');
 const posts = require('./routes/postRoutes');
 const users = require('./routes/userRoutes');
 const friends = require('./routes/friendsRoutes');
+const images = require('./routes/imageRoutes');
 
 app.use('/api/chatApp' , auth);
 app.use('/api/chatApp' , posts);
 app.use('/api/chatApp' , users);
 app.use('/api/chatApp' , friends);
+app.use('/api/chatApp' , images);
 
 http.listen(3000 ,() => {
     console.log('running on 3000');

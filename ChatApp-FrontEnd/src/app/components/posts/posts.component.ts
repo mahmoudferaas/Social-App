@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 
-import * as moment from 'moment'
+import * as moment from 'moment';
 import io from 'socket.io-client';
 import _ from 'lodash'
 import { TokenService } from 'src/app/services/token.service';
@@ -36,7 +36,7 @@ export class PostsComponent implements OnInit {
   AllPosts()
   {
     this.postService.GetAllPosts().subscribe(data => {
-      
+      debugger
       this.posts = data.posts;
       } , 
       err => {

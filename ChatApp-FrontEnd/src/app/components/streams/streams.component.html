@@ -1,6 +1,6 @@
 <app-toolar></app-toolar>
 
-<div class="container">
+<div class="container" style="margin-top: 30px">
   <div class="row">
 
     <div class="col s12 m4 l3">
@@ -9,8 +9,29 @@
     </div>
 
     <div class="col s12 m8 l9">
-        <app-post-form></app-post-form>
-      <app-posts></app-posts>
+
+      <div class="row">
+        <div class=" col s12 m12 l10">
+          <ul class="tabs">
+            <li class="tab col s6" (click)="ChangeTab('streams')">
+              <a class="active" href="#streams"> Streams </a>
+            </li>
+
+            <li class="tab col s6" (click)="ChangeTab('top')">
+                <a  href="#top"> Top Streams </a>
+              </li>
+
+          </ul>
+        </div>
+        <div id="streams" class=" col s12" *ngIf="StreamTab">
+            <app-post-form></app-post-form>
+            <app-posts></app-posts>
+        </div>
+        <div id="top" class=" col s12" *ngIf="TopStreamTab">
+            <app-top-streams></app-top-streams>
+        </div>
+      </div>
+
       </div>
 
   </div>

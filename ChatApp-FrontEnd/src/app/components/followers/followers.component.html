@@ -14,13 +14,14 @@
             <div class="card">
               <a>
                 <div class="card-image imgDiv">
-                  <img src="http://placehold.it/100x100" alt="" class="circle responsive-img">
+                  <img src="https://res.cloudinary.com/dgqaxuar8/image/upload/v{{user.follower.picVersion}}/{{user.follower.picId}}" alt="" class="circle responsive-img">
                 </div>
               </a>
               <div class="card-action">
                 <h3 class="card-title">
                   {{user.follower.username}}
                 </h3>
+                <p *ngIf="user.follower.city">{{user.follower.city}} , {{user.follower.country}}</p>
                 <!-- <button class="btn" (click)="UnFollow(user.userFollowed)"> UnFollow </button> -->
               </div>
             </div>

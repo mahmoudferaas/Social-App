@@ -13,7 +13,7 @@
                       <a class="material-icons Imageicon">image</a>
                       Image
                     </span>
-                    <input type="file">
+                    <input type="file" ng2FileSelect [uploader]="uploader" (onFileSelected)="OnFileSelected($event)">
                   </div>
                   <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">

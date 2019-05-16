@@ -95,6 +95,21 @@ module.exports ={
             res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message : " Error"});
 
         })
+       } else{
+        await User.updateOne({
+            _id:req.user._id,
+            "notifications._id" : req.params.id
+        } , 
+        {
+            $pull : {notifications : {_id : req.params.id }}
+        })
+        .then( () => {
+            res.status(HttpStatus.OK).json({ message : " Notification Deleted Successfully "});
+        })
+        .catch (err => {
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message : " Error"});
+
+        })
        }
 
     }

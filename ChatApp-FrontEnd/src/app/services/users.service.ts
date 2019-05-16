@@ -21,7 +21,7 @@ export class UsersService {
   }
 
   GetUserByName(username) : Observable<any>{
-    return this.http.get(`${BASEURL}/user/${username}` );
+    return this.http.get(`${BASEURL}/users/${username}` );
   }
 
   FollowUser( userFollowed) : Observable<any>{
@@ -42,5 +42,22 @@ export class UsersService {
     });
   }
   
+  AddImage(image) : Observable<any>{  
+    return this.http.post(`${BASEURL}/upload-image` ,{ 
+      image
+    });
+  }
+
+  SetDefaultImage(imageId , imageVersion) : Observable<any>{
+    return this.http.get(`${BASEURL}/set-default-image/${imageId}/${imageVersion}` );
+  }
+  
+  profileNotifactions(id) : Observable<any>{  
+    return this.http.post(`${BASEURL}/user/view-profile` ,{ id});
+  }
+
+  ChangePassword(body) : Observable<any>{  
+    return this.http.post(`${BASEURL}/change-password` , body);
+  }
 
 }

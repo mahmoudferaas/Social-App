@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
      user : { type : mongoose.Schema.Types.ObjectId , ref : 'User'},
      username : {type : String , default: ''},
      post : {type : String  , default: ''},
+     imgVersion : {type : String  , default: ''},
+     imgId : {type : String  , default: ''},
      comments : [ { 
         userId:{ type : mongoose.Schema.Types.ObjectId , ref : 'User'},
         username : {type : String , default: ''},

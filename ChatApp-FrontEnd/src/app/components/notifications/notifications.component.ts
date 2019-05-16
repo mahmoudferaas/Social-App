@@ -44,7 +44,9 @@ export class NotificationsComponent implements OnInit {
   }
 
   DeleteNotification(data){
-    console.log(data);
+    this.userService.MarkNotification(data._id , true).subscribe(value =>{
+      this.socket.emit('refresh' , {});
+    })
   }
 
 }

@@ -1,0 +1,109 @@
+.card_image{
+    width: 200px;
+    height: auto !important;
+}
+
+.tab a{
+    color: #54b5f6 !important;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tabs .col .s4{
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+.tabs a .indicator{
+    background-color: #54b5f6 !important;
+}
+
+.collection {
+    border: none !important;
+}
+
+.collection-item {
+    border: none !important;
+}
+
+.button{
+    background: none !important;
+    border: none !important;
+    height: 10px;
+}
+
+.Liked{
+    color: #64b5f6;
+}
+
+.title{
+    font-weight:bold;
+    font-size: 20px;
+    color: black;
+}
+
+.userName{
+    font-size: 20px;
+    color:#54b5f6;
+}
+
+.time{
+    font-size: 14px;
+    color: #666565;
+}
+
+.iconSpan{
+    font-size: 18px;
+    line-height: 18px;
+    margin-right: 5px;
+}
+
+.material-icons{
+    display: inline-flex;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.postImg{
+    width: 100% !important;
+    margin: 0 auto !important;
+    left: 20px !important;
+    top: 10px !important;
+}
+
+.card-image{
+    width: 200px;
+    height: auto !important;
+}
+
+
+.imgCircle{
+    border-radius: 50%;
+    width: 160px !important;
+    height: 160px !important;
+    border-radius: 50%;
+    margin: 0 auto !important;
+    position: relative;
+}
+
+.imgBtn{
+    margin: 0 auto !important;
+    text-align: center !important;
+    margin-top: 5px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
